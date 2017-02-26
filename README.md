@@ -3,8 +3,8 @@ Group Project
 
 Initial Readme
 
-Group members:
-	Liam Wilson, lpw3
-	Tyler Kasper, tkasper
-	Chang Liu, cla280
-	Seth Traverse, stravers
+Group members:\n
+	\tLiam Wilson, lpw3\n
+	\tTyler Kasper, tkasper\n
+	\tChang Liu, cla280\n
+	\tSeth Traverse, stravers\n
