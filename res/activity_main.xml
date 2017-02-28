@@ -16,11 +16,20 @@
         android:text="@string/java_android_quiz_game"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ImageView
+        android:id="@+id/main_icon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.21"
+        android:scaleType="center"
+        android:src="@drawable/ic_launcher" />
+
     <Button
         android:id="@+id/main_easy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text="@string/easy" />
 
     <Button
@@ -31,8 +40,15 @@
 
     <Button
         android:id="@+id/main_hard"
-        android:layout_width="288dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hard" />
+
+    <Button
+        android:id="@+id/main_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/need_help_" />
 
 </LinearLayout>
