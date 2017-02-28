@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 	
-	Button easy_btn, medium_btn, hard_btn;
+	Button easy_btn, medium_btn, hard_btn, help_btn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,22 @@ public class MainActivity extends Activity {
 		onClickButtonListenerForEasy();
 		onClickButtonListenerForMedium();
 		onClickButtonListenerForHard();
+		onClickButtonListenerForHelp();
 	}
+	
+	public void onClickButtonListenerForHelp(){
+        help_btn = (Button)findViewById(R.id.main_help);
+        help_btn.setOnClickListener(
+             new View.OnClickListener() {
+
+             @Override
+             public void onClick(View v) {
+                  // TODO Auto-generated method stub
+                  Intent intent = new Intent(MainActivity.this,HelpActivity.class);
+                  startActivity(intent);
+             }
+        });
+   }
 	
     public void onClickButtonListenerForEasy(){
         easy_btn = (Button)findViewById(R.id.main_easy);
