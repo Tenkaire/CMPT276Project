@@ -7,14 +7,14 @@ public class QuestionLibrary {
 	};
 	
 	private String options [][] = {
-			{"text1","text2","text3"},
-			{"Q2text1","Q2text2","Q2text3"},
-			{"Q3text1","Q3text2","Q3text3"},
-			{"Q4text1","Q4text2","Q4text3"}
+			{"module1","module2","module3"},
+			{"Q2module1","Q2module2","Q2module3"},
+			{"Q3module1","Q3module2","Q3module3"},
+			{"Q4module1","Q4module2","Q4module3"}
 	};
 	
 	private String correctAnswer[] = {
-			"text1","Q2text2","Q3text3","Q4text4"
+			"module1","Q2module2","Q3module3","Q4module3"
 	};
 	
 	public String getQuestion (int num){
