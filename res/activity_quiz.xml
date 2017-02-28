@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="60dp"
-        android:text="@string/text_1"
+        android:text="@string/module1"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="@string/text_2"
+        android:text="@string/module2"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:text="@string/text_3"
+        android:text="@string/module3"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <GridLayout
