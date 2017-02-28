@@ -13,13 +13,15 @@
     <string name="score_">"Score: "</string>
     <string name="_0">0</string>
     <string name="question">Question</string>
-    <string name="text_1">text 1</string>
-    <string name="text_2">text 2</string>
-    <string name="text_3">text 3</string>
+    <string name="module1">module1</string>
+    <string name="module2">module2</string>
+    <string name="module3">module3</string>
     <string name="previous">Previous</string>
     <string name="hint">Hint</string>
     <string name="skip">Skip</string>
     <string name="quit">Quit</string>
     <string name="save">Save</string>
+    <string name="need_help_">Need Help?</string>
+    <string name="title_activity_question">QuestionActivity</string>
 
 </resources>
