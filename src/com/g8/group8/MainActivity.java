@@ -1,0 +1,69 @@
+package com.g8.group8;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+	
+	Button easy_btn, medium_btn, hard_btn;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		onClickButtonListenerForEasy();
+		onClickButtonListenerForMedium();
+		onClickButtonListenerForHard();
+	}
+	
+    public void onClickButtonListenerForEasy(){
+        easy_btn = (Button)findViewById(R.id.main_easy);
+        easy_btn.setOnClickListener(
+             new View.OnClickListener() {
+
+             @Override
+             public void onClick(View v) {
+                  // TODO Auto-generated method stub
+                  Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+                  startActivity(intent);
+             }
+        });
+   }
+    
+    public void onClickButtonListenerForMedium(){
+        medium_btn = (Button)findViewById(R.id.main_medium);
+        medium_btn.setOnClickListener(
+             new View.OnClickListener() {
+
+             @Override
+             public void onClick(View v) {
+                  // TODO Auto-generated method stub
+                  Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+                  startActivity(intent);
+             }
+        });
+   }
+    
+    public void onClickButtonListenerForHard(){
+        hard_btn = (Button)findViewById(R.id.main_hard);
+        hard_btn.setOnClickListener(
+             new View.OnClickListener() {
+
+             @Override
+             public void onClick(View v) {
+                  // TODO Auto-generated method stub
+                  Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+                  startActivity(intent);
+             }
+        });
+   }
+
+
+	
+}
