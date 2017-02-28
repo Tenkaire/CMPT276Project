@@ -17,7 +17,7 @@ public class QuizActivity extends Activity {
 	
 	TextView count, question, text1, text2, text3;
 	private QuestionLibrary questionL = new QuestionLibrary();
-	private int questionNum = 1;
+	private int questionNum = 0;
 	private String CorrectAnswer; 
 	private Button previous, hint, skip, quit, save;
 
@@ -40,6 +40,7 @@ public class QuizActivity extends Activity {
 		onClickButtonListenerForHint();
 		onClickButtonListenerForSkip();
 		onClickButtonListenerForQuit();
+		onClickButtonListenerForPrevious();
 		
 	}
 	
@@ -87,14 +88,28 @@ public class QuizActivity extends Activity {
 	};
 	
 	private void updateQuestions(){
+		if(questionNum<3){
+			questionNum++;
+		}
 		question.setText(questionL.getQuestion(questionNum));
 		text1.setText(questionL.getOption1(questionNum));
 		text2.setText(questionL.getOption2(questionNum));
 		text3.setText(questionL.getOption3(questionNum));
 		
 		CorrectAnswer = questionL.getCorrect(questionNum);
-		if(questionNum<4){
-			questionNum++;
+		
+		
+	}
+	
+	private void backQuestions(){
+		question.setText(questionL.getQuestion(questionNum-1));
+		text1.setText(questionL.getOption1(questionNum-1));
+		text2.setText(questionL.getOption2(questionNum-1));
+		text3.setText(questionL.getOption3(questionNum-1));
+		
+		CorrectAnswer = questionL.getCorrect(questionNum-1);
+		if(questionNum>0){
+			questionNum--;
 		}
 		
 	}
@@ -113,6 +128,25 @@ public class QuizActivity extends Activity {
         });
    }
 	
+	public void onClickButtonListenerForPrevious(){
+        previous = (Button)findViewById(R.id.quiz_previous);
+        previous.setOnClickListener(
+             new View.OnClickListener() {
+
+             @Override
+             public void onClick(View v) {
+                  // TODO Auto-generated method stub
+            	 
+            	 if(questionNum==0){
+            		 
+            		 Toast.makeText(QuizActivity.this, "This is the very first.", Toast.LENGTH_LONG).show();
+            	 }else if(questionNum>0 && questionNum<4){
+            		 backQuestions();
+            	 }
+             }
+        });
+   }
+	
 	public void onClickButtonListenerForSkip(){
         skip = (Button)findViewById(R.id.quiz_skip);
         skip.setOnClickListener(
@@ -122,7 +156,7 @@ public class QuizActivity extends Activity {
              public void onClick(View v) {
                   // TODO Auto-generated method stub
             	 
-            	 if(questionNum<4){
+            	 if(questionNum<3){
             		 updateQuestions();
             	 }else{
             		 Toast.makeText(QuizActivity.this, "No more question!", Toast.LENGTH_LONG).show();
@@ -139,7 +173,7 @@ public class QuizActivity extends Activity {
              @Override
              public void onClick(View v) {
                   // TODO Auto-generated method stub
-            	 Toast.makeText(QuizActivity.this, "Correct Option is "+ questionL.getCorrect(questionNum-1), Toast.LENGTH_LONG).show();
+            	 Toast.makeText(QuizActivity.this, "Correct Option is "+ questionL.getCorrect(questionNum), Toast.LENGTH_LONG).show();
              }
         });
    }
