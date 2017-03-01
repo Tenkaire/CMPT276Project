@@ -1,0 +1,11 @@
+/.gitkeep
+/.project
+/.settings/
+/AndroidManifest.xml
+/bin/
+/com/
+/dimens.xml
+/proguard-project.txt
+/project.properties
+/strings.xml
+/styles.xml
