@@ -1,0 +1,2 @@
+The part of the QuizActivity, MainActivity, and HelpActivity.
+	
