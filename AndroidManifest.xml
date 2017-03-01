@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="25" />
 
     <application
         android:allowBackup="true"
@@ -24,21 +24,19 @@
         </activity>
         <activity
             android:name=".QuizActivity"
-            android:label="@string/title_activity_quiz" >
-            <intent-filter>
-                <action android:name="com.g8.group8.QuizActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:label="@string/title_activity_quiz"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.g8.group8.MainActivity" />
         </activity>
         <activity
             android:name=".HelpActivity"
-            android:label="@string/title_activity_help" >
-            <intent-filter>
-                <action android:name="com.g8.group8.HelpActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            android:label="@string/title_activity_help"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.g8.group8.MainActivity" />
         </activity>
     </application>
 
