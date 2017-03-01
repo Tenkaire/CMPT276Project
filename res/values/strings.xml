@@ -23,5 +23,6 @@
     <string name="save">Save</string>
     <string name="need_help_">Need Help?</string>
     <string name="title_activity_question">QuestionActivity</string>
+    <string name="title_activity_level_select">LevelSelectActivity</string>
 
 </resources>

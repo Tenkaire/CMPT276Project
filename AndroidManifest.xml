@@ -38,6 +38,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.g8.group8.MainActivity" />
         </activity>
+        <activity
+            android:name=".LevelSelectActivity"
+            android:label="@string/title_activity_level_select" >
+        </activity>
     </application>
 
 </manifest>

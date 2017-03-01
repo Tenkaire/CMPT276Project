@@ -3,8 +3,6 @@ package com.g8.group8;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,7 +28,6 @@ public class MainActivity extends Activity {
 
              @Override
              public void onClick(View v) {
-                  // TODO Auto-generated method stub
                   Intent intent = new Intent(MainActivity.this,HelpActivity.class);
                   startActivity(intent);
              }
@@ -44,8 +41,7 @@ public class MainActivity extends Activity {
 
              @Override
              public void onClick(View v) {
-                  // TODO Auto-generated method stub
-                  Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+                  Intent intent = new Intent(MainActivity.this,LevelSelectActivity.class);
                   startActivity(intent);
              }
         });
@@ -58,8 +54,7 @@ public class MainActivity extends Activity {
 
              @Override
              public void onClick(View v) {
-                  // TODO Auto-generated method stub
-                  Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+                  Intent intent = new Intent(MainActivity.this,LevelSelectActivity.class);
                   startActivity(intent);
              }
         });
@@ -72,8 +67,7 @@ public class MainActivity extends Activity {
 
              @Override
              public void onClick(View v) {
-                  // TODO Auto-generated method stub
-                  Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+                  Intent intent = new Intent(MainActivity.this,LevelSelectActivity.class);
                   startActivity(intent);
              }
         });
