@@ -25,4 +25,20 @@
     <string name="title_activity_question">QuestionActivity</string>
     <string name="title_activity_level_select">LevelSelectActivity</string>
 
+    <string-array name="language_item">
+        <item>Java</item>
+        <item>C++</item>
+        <item>C</item>
+        <item>Python</item>
+        <item>Android Developing</item>
+    </string-array>
+    <string-array name="level_item">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="title_activity_shop">ShopActivity</string>
+
 </resources>
