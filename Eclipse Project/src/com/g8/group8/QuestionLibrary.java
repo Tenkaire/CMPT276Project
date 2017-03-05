@@ -13,6 +13,8 @@ public class QuestionLibrary {
 			{"Q4module1","Q4module2","Q4module3"}
 	};
 	
+	
+	
 	private String correctAnswer[] = {
 			"module1","Q2module2","Q3module3","Q4module3"
 	};
@@ -36,5 +38,24 @@ public class QuestionLibrary {
 	public String getCorrect (int num){
 		return correctAnswer[num];
 	}
+	
+	
+	
+	private String JavaQuestionLibrary[] = {
+			"JavaQuestion1","JavaQuestion2","JavaQuestion3","JavaQuestion4"
+	};
+	private String PythonQuestionLibrary[] = {
+			"PythonQuestion1","PythonQuestion2","PythonQuestion3","PythonQuestion4"
+	};
+	private String CQuestionLibrary[] = {
+			"CQuestion1","CQuestion2","CQuestion3","CQuestion4"
+	};
+	private String CppQuestionLibrary[] = {
+			"CppQuestion1","CppQuestion2","CppQuestion3","CppQuestion4"
+	};
+	private String AndroidQuestionLibrary[] = {
+			"AndroidQuestion1","AndroidQuestion2","AndroidQuestion3","AndroidQuestion4"
+	};
+	
 
 }
