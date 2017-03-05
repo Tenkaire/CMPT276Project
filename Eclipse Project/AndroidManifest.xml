@@ -42,6 +42,20 @@
             android:name=".LevelSelectActivity"
             android:label="@string/title_activity_level_select" >
         </activity>
+        <activity
+            android:name=".InformationActivity"
+            android:label="@string/title_activity_information" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.g8.group8.HelpActivity" />
+        </activity>
+        <activity
+            android:name=".ShopActivity"
+            android:label="@string/title_activity_shop" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.g8.group8.HelpActivity" />
+        </activity>
     </application>
 
 </manifest>
