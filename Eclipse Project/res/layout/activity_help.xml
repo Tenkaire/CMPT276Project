@@ -9,4 +9,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.g8.group8.HelpActivity" >
 
+    <Button
+        android:id="@+id/help_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Information" />
+
+    <Button
+        android:id="@+id/help_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shop" />
+
 </LinearLayout>
