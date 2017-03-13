@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
-    <EditText
+    <com.group8.dragcode.qclasses.CodeBox
         android:id="@+id/et_codeBox"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -18,6 +18,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@+id/gl_qstn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

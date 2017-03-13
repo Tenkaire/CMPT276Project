@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Questions>
+    <Question
+        key="TEST"
+        title="Test Question"
+        text="Sample text"
+        skelCode=""
+        hintText="Sample hint">
+        <Modules>
+            <value>TEST</value>
+        </Modules>
+    </Question>
+
+</Questions>
