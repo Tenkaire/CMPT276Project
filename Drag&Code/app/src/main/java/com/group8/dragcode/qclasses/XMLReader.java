@@ -36,8 +36,10 @@ public class XMLReader
                 String moduleName = xml.getAttributeValue(null, "name");
                 String moduleCode = xml.getAttributeValue(null, "code");
                 boolean needsBrackets = xml.getAttributeBooleanValue(null, "needsBracks", false);
+                boolean acceptsArguments = xml.getAttributeBooleanValue(null, "acceptsArgs", false);
+                boolean acceptsComparisons = xml.getAttributeBooleanValue(null, "acceptsComps", false);
                 xml.close();
-                return new Module(context, moduleKey, moduleName, moduleCode, needsBrackets);
+                return new Module(context, moduleKey, moduleName, moduleCode, needsBrackets, acceptsArguments, acceptsComparisons);
             }
             eventType = xml.next();
         }

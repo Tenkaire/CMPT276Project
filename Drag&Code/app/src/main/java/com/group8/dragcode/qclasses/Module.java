@@ -19,8 +19,10 @@ public class Module extends AppCompatButton
     private String moduleName = "DEFAULT MODULE";
     private String moduleCode = "foo.bar()";
     private boolean needsBrackets = false;
+    private boolean acceptsArguments = false;
+    private boolean acceptsComparisons = false;
 
-    public Module(Context context, String moduleKey, String moduleName, String moduleCode, boolean needsBrackets)
+    public Module(Context context, String moduleKey, String moduleName, String moduleCode, boolean needsBrackets, boolean acceptsArguments, boolean acceptsComparisons)
     {
         super(context);
 
@@ -30,6 +32,8 @@ public class Module extends AppCompatButton
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
         this.needsBrackets = needsBrackets;
+        this.acceptsArguments = acceptsArguments;
+        this.acceptsComparisons = acceptsComparisons;
 
         this.setText(this.moduleName);
     }
@@ -41,6 +45,16 @@ public class Module extends AppCompatButton
     public String getCode() { return moduleCode; }
 
     public boolean getNeedsBrackets() { return needsBrackets; }
+
+    public boolean getAcceptsArguments()
+    {
+        return acceptsArguments;
+    }
+
+    public boolean getAcceptsComparisons()
+    {
+        return acceptsComparisons;
+    }
 
 
 

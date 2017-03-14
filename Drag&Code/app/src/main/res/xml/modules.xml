@@ -5,6 +5,8 @@
         name="Testing Module"
         code="test.bar()"
         needsBracks="true"
+        acceptsArgs="true"
+        acceptsComps="true"
         />
 
 </Modules>
