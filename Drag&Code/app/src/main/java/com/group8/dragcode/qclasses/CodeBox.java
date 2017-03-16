@@ -2,13 +2,19 @@ package com.group8.dragcode.qclasses;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.PopupMenu;
 import android.text.Layout;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.DragEvent;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.group8.dragcode.R;
@@ -26,6 +32,7 @@ public class CodeBox extends AppCompatEditText
     private ArrayList<CodeLine> code;
 
     private boolean drawOverbar = false;
+    private boolean drawHighlight = false;
     private int currentLine = 0;
 
     public CodeBox(Context context)
@@ -52,6 +59,7 @@ public class CodeBox extends AppCompatEditText
     private void init()
     {
         this.setOnDragListener(new CodeDropListener());
+        this.setOnTouchListener(new CodeTapListener());
         code = new ArrayList<>();
         code.add(new CodeLine(CodeLine.EMPTY_LINE, "", null));
     }
@@ -147,6 +155,17 @@ public class CodeBox extends AppCompatEditText
             canvas.drawRect(overbar, ulColor);
         }
 
+        if (drawHighlight)
+        {
+            Rect highlight = new Rect();
+            getLineBounds(currentLine, highlight);
+
+            Paint ulColor = new Paint();
+            ulColor.setColor(ContextCompat.getColor(context, R.color.colorPrimary));
+
+            canvas.drawRect(highlight, ulColor);
+        }
+
         super.onDraw(canvas);
     }
 
@@ -165,7 +184,7 @@ public class CodeBox extends AppCompatEditText
             Layout codeLayout = codeBox.getLayout();
 
             float y = event.getY() + codeBox.getScrollY();
-            int lineNum = codeLayout.getLineForVertical((int) y);
+            int lineNum = codeLayout.getLineForVertical((int) Math.round(y));
             if (lineNum > getLineCount()) lineNum = getLineCount();
 
             switch (event.getAction())
@@ -214,6 +233,54 @@ public class CodeBox extends AppCompatEditText
 
                 default:
                     break;
+            }
+
+            return true;
+        }
+    }
+
+    private class CodeTapListener implements View.OnTouchListener
+    {
+        public boolean onTouch(View v, MotionEvent event)
+        {
+            if(event.getAction() == MotionEvent.ACTION_UP)
+            {
+                CodeBox codeBox = (CodeBox) v;
+                Layout codeLayout = codeBox.getLayout();
+
+                float y = event.getY() + codeBox.getScrollY();
+                int lineNum = codeLayout.getLineForVertical((int) Math.round(y));
+                if (lineNum > getLineCount()) return true;
+
+                CodeLine tapped = code.get(lineNum);
+
+                drawHighlight = true;
+                currentLine = lineNum;
+                invalidate();
+
+                if (tapped.getLineType() == CodeLine.CODE_TEXT)
+                {
+                    InLineModule ilModule = tapped.getRootModule();
+
+                    if (ilModule.getDeletable() || ilModule.getAcceptsArguments() || ilModule.getAcceptsComparisons())
+                    {
+                        PopupMenu popupMenu = new PopupMenu(context, v);
+
+                        if (ilModule.getDeletable())
+                        {
+                            SpannableString deleteString = new SpannableString("Delete");
+                            deleteString.setSpan(new ForegroundColorSpan(Color.parseColor("#FF0000")), 0, deleteString.length(), 0);
+                            popupMenu.getMenu().add(deleteString);
+                        }
+
+                        popupMenu.show();
+                    }
+                }
+                else
+                {
+                    drawHighlight = false;
+                    invalidate();
+                }
             }
 
             return true;

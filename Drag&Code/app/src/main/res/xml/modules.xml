@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Modules>
     <Module
-        key="TEST"
+        key="TESTMOD"
         name="Testing Module"
         code="test.bar()"
         needsBracks="true"

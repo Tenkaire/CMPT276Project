@@ -88,5 +88,24 @@ public class XMLReader
         return null;
     }
 
+    public ArrayList<String> getQuestionKeys() throws IOException, XmlPullParserException
+    {
+        ArrayList<String> returnKeys = new ArrayList<>();
+
+        XmlResourceParser xml = context.getResources().getXml(R.xml.questions);
+        int eventType = xml.next();
+        while (eventType != XmlPullParser.END_DOCUMENT)
+        {
+            if (eventType == XmlPullParser.START_TAG && xml.getName().equals("Question"))
+            {
+                String questionKey = xml.getAttributeValue(null, "key");
+                returnKeys.add(questionKey);
+            }
+            eventType = xml.next();
+        }
+        xml.close();
+        return returnKeys;
+    }
+
 
 }

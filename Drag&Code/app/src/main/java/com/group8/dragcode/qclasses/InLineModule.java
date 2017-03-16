@@ -90,4 +90,19 @@ public class InLineModule
     {
         return endBrackLineNum;
     }
+
+    public boolean getDeletable()
+    {
+        return deletable;
+    }
+
+    public boolean getAcceptsArguments()
+    {
+        return acceptsArguments;
+    }
+
+    public boolean getAcceptsComparisons()
+    {
+        return acceptsComparisons;
+    }
 }

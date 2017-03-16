@@ -7,7 +7,7 @@
         skelCode=""
         hintText="Sample hint">
         <Modules>
-            <value>TEST</value>
+            <value>TESTMOD</value>
         </Modules>
     </Question>
 
