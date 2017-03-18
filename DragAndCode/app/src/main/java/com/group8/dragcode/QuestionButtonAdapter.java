@@ -9,15 +9,14 @@ import android.widget.BaseAdapter;
  */
 
 public class QuestionButtonAdapter extends BaseAdapter {
-    int[] questionIds;
-    int currentIndex;
-    XMLReader xmlReader;
-
-    private QuestionButtonAdapter()
+    QuestionSet questionSet;
+    private QuestionButtonAdapter(QuestionSet questionSet){
+        this.questionSet = questionSet;
+    }
 
     @Override
     public int getCount() {
-        return 0;
+        return ;
     }
 
     @Override
