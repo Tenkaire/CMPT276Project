@@ -18,6 +18,10 @@ public class QuestionSet {
         this.currentIndex = -1;
     }
 
+    public int getNumberQuestions(){
+        return questionKeys.length;
+    }
+
     public Question getQuestionForIndex(int index){
         this.currentIndex = index;
         return this.xmlReader.getQuestion(questionKeys[index]);
