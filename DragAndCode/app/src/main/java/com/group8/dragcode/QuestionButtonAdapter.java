@@ -16,7 +16,7 @@ public class QuestionButtonAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return ;
+        return questionSet.getNumberQuestions();
     }
 
     @Override
