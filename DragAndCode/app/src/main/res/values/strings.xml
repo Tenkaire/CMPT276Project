@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Drag &amp; Code</string>
+    <string name="returnToMainMenu">Return To The Main Menu</string>
+    <string name="questionSelection">Question Selection</string>
 </resources>
