@@ -12,9 +12,4 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-    public void nextScreen(View view){
-        Intent intent = new Intent(this, QuestionSelectionActivity.class);
-        startActivity(intent);
-    }
 }
