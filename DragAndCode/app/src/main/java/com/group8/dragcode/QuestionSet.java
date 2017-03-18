@@ -22,6 +22,10 @@ public class QuestionSet {
         return questionKeys.length;
     }
 
+    public Question getCurrentQuestion(){
+        return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
+    }
+
     public Question getQuestionForIndex(int index){
         this.currentIndex = index;
         return this.xmlReader.getQuestion(questionKeys[index]);
