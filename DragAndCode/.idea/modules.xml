@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Drag&amp;Code.iml" filepath="$PROJECT_DIR$/Drag&amp;Code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DragAndCode.iml" filepath="$PROJECT_DIR$/DragAndCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

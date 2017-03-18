@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Drag &amp; Code</string>
+    <string name="returnToMainMenu">Return To Main Menu</string>
 </resources>
