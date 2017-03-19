@@ -10,10 +10,11 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.PopupMenu;
 import android.text.Layout;
 import android.text.SpannableString;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.DragEvent;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -30,6 +31,8 @@ public class CodeBox extends AppCompatEditText
 
     private Context context;
     private ArrayList<CodeLine> code;
+    private ArrayList<Variable> globalVars;
+    private Question currentQuestion = null;
 
     private boolean drawOverbar = false;
     private boolean drawHighlight = false;
@@ -62,6 +65,12 @@ public class CodeBox extends AppCompatEditText
         this.setOnTouchListener(new CodeTapListener());
         code = new ArrayList<>();
         code.add(new CodeLine(CodeLine.EMPTY_LINE, "", null));
+        globalVars = new ArrayList<>();
+    }
+
+    public void setCurrentQuestion(Question currentQuestion)
+    {
+        this.currentQuestion = currentQuestion;
     }
 
     public void addModule(InLineModule ilModule, String moduleCode)
@@ -136,6 +145,44 @@ public class CodeBox extends AppCompatEditText
                 scrollTo(scrollX, scrollY);
             }
         });
+
+    }
+
+    private void deleteCurrentLine()
+    {
+        InLineModule moduleToDelete = code.get(currentLine).getRootModule();
+        int endBrackLineNum = moduleToDelete.getEndBrackLineNum();
+        int lineDiff = endBrackLineNum - currentLine;
+
+        for (int i = lineDiff; i >= 0; i--)
+        {
+            code.remove(currentLine);
+        }
+
+        for (int i = currentLine; i < code.size(); i++)
+        {
+            CodeLine cl = code.get(i);
+            switch (cl.getLineType())
+            {
+                case CodeLine.CODE_TEXT:
+                    cl.getRootModule().setRootLineNum(cl.getRootModule().getRootLineNum()-(lineDiff+1));
+                    break;
+                case CodeLine.OPEN_BRACKET:
+                    cl.getRootModule().setStartBrackLineNum(cl.getRootModule().getStartBrackLineNum()-(lineDiff+1));
+                    break;
+                case CodeLine.CLOSED_BRACKET:
+                    cl.getRootModule().setEndBrackLineNum(cl.getRootModule().getEndBrackLineNum()-(lineDiff+1));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        refreshText();
+    }
+
+    private void addArgumentCurrentLine()
+    {
 
     }
 
@@ -265,6 +312,18 @@ public class CodeBox extends AppCompatEditText
                     if (ilModule.getDeletable() || ilModule.getAcceptsArguments() || ilModule.getAcceptsComparisons())
                     {
                         PopupMenu popupMenu = new PopupMenu(context, v);
+                        popupMenu.setOnDismissListener(new CodeMenuDismissListener());
+                        popupMenu.setOnMenuItemClickListener(new CodeMenuItemClickListener());
+
+                        if (ilModule.getAcceptsArguments())
+                        {
+                            popupMenu.getMenu().add("Add Argument");
+                        }
+
+                        if (ilModule.getAcceptsComparisons())
+                        {
+                            popupMenu.getMenu().add("Add Comparison");
+                        }
 
                         if (ilModule.getDeletable())
                         {
@@ -281,6 +340,37 @@ public class CodeBox extends AppCompatEditText
                     drawHighlight = false;
                     invalidate();
                 }
+            }
+
+            return false;
+        }
+    }
+
+    private class CodeMenuDismissListener implements PopupMenu.OnDismissListener
+    {
+        @Override
+        public void onDismiss(PopupMenu menu)
+        {
+            drawHighlight = false;
+            invalidate();
+        }
+    }
+
+    private class CodeMenuItemClickListener implements PopupMenu.OnMenuItemClickListener
+    {
+        @Override
+        public boolean onMenuItemClick(MenuItem item)
+        {
+            String menuItemText = item.getTitle().toString();
+
+            if (menuItemText.equals("Delete"))
+            {
+                deleteCurrentLine();
+            }
+
+            if (menuItemText.equals("Add Argument"))
+            {
+                addArgumentCurrentLine();
             }
 
             return true;

@@ -22,7 +22,7 @@ public class InLineModule
     private int indentLevel = 0;
 
     private InLineModule parent = null;
-    private ArrayList<InLineModule> children = null;
+    private ArrayList<Variable> localVars;
 
     public InLineModule(String moduleKey, boolean deletable, boolean acceptsArguments, boolean acceptsComparisons, boolean needsBrackets, int indentLevel, int rootLineNum, InLineModule parent)
     {
@@ -34,6 +34,8 @@ public class InLineModule
         this.indentLevel = indentLevel;
         this.rootLineNum = rootLineNum;
         this.parent = parent;
+
+        this.localVars = new ArrayList<>();
     }
 
     public int getIndentLevel()
@@ -49,11 +51,6 @@ public class InLineModule
     public void setParent(InLineModule parent)
     {
         this.parent = parent;
-    }
-
-    public void addChild(InLineModule module)
-    {
-        children.add(module);
     }
 
     public boolean getNeedsBrackets()
@@ -104,5 +101,20 @@ public class InLineModule
     public boolean getAcceptsComparisons()
     {
         return acceptsComparisons;
+    }
+
+    public ArrayList<Variable> getLocalVars()
+    {
+        return localVars;
+    }
+
+    public void addLocalVar(Variable var)
+    {
+        localVars.add(var);
+    }
+
+    public void delLocalVar(Variable var)
+    {
+        localVars.remove(var);
     }
 }

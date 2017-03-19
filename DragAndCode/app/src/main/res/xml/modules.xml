@@ -9,4 +9,13 @@
         acceptsComps="true"
         />
 
+    <Module
+        key="VAR"
+        name="Variable"
+        code=""
+        needsBracks="false"
+        acceptsArgs="false"
+        acceptsComps="false"
+        />
+
 </Modules>

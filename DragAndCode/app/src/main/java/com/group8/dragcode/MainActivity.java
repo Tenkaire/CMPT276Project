@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-    /*public void onClickQuestion(View v)
+    public void onClickQuestion(View v)
     {
         // In reality, this will be the key to the question being clicked on
         String qkey = "TEST";
@@ -32,5 +32,5 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, QuestionActivity.class);
         intent.putExtra("QKEY", qkey);
         startActivity(intent);
-    }*/
+    }
 }

@@ -3,6 +3,7 @@ package com.group8.dragcode.qclasses;
 import android.os.Parcelable;
 import android.os.Parcel;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,10 @@ public class Question
     private String skeletonCode;
     private String hintText;
     private ArrayList<Module> codeModules;
+
+    private ArrayList<String> allowedVarTypes;
+    private ArrayList<Variable> pdVars;
+    //private ArrayList<Comparison> pdComps;
 
     public Question()
     {

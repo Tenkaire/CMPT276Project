@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.group8.dragcode.qclasses.CodeBox;
 import com.group8.dragcode.qclasses.Module;
 import com.group8.dragcode.qclasses.Question;
 import com.group8.dragcode.qclasses.XMLReader;
@@ -14,13 +15,15 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 
-public class QuestionActivity extends AppCompatActivity {
+public class QuestionActivity extends AppCompatActivity
+{
 
     private Question question;
     private String qKey;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
@@ -28,7 +31,8 @@ public class QuestionActivity extends AppCompatActivity {
         this.qKey = intent.getStringExtra("QKEY");
 
         XMLReader xml = new XMLReader(this);
-        try {
+        try
+        {
             question = xml.getQuestion(qKey);
         } catch (IOException | XmlPullParserException e)
         {
@@ -41,6 +45,9 @@ public class QuestionActivity extends AppCompatActivity {
         {
             ll_modules.addView(m);
         }
+
+        CodeBox codeBox = (CodeBox) findViewById(R.id.et_codeBox);
+        codeBox.setCurrentQuestion(question);
 
     }
 }
