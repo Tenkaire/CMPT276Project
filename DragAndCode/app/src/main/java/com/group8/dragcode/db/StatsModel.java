@@ -60,7 +60,7 @@ public class StatsModel {
         long completedAt = cursor.getLong(cursor.getColumnIndex(StatsTable.COL_COMPLETED_AT));
 
         cursor.close();
-        return new QuestionStats(questionId, completed, startedAt, completedAt);
+        return new QuestionStats(completed, startedAt, completedAt);
     }
 
     public int countCompletedForLanguage(String language) {
