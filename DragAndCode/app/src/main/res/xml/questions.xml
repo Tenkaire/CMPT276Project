@@ -3,12 +3,28 @@
     <Question
         key="TEST"
         title="Test Question"
-        text="Sample text"
-        skelCode=""
-        hintText="Sample hint">
-        <Modules>
-            <value>TESTMOD</value>
-        </Modules>
+        hintText="Sample hint"
+        language="Java"
+        difficulty="Easy">
+
+        <Code>
+            <Text>if (</Text> <Blank answerKey="sampleAnswer"/> <Text>)</Text>
+            <Newline/>
+            <Text>{</Text>
+            <Newline/>
+                <Text indentLevel="1">foo.bar();</Text>
+            <Newline/>
+            <Text>}</Text>
+            <Newline/>
+        </Code>
+
+        <Output>
+            <Text>This is some output!</Text>
+        </Output>
+
+        <Answers>
+            <Answer key="sampleAnswer">This is a sample answer</Answer>
+        </Answers>
     </Question>
 
 </Questions>
