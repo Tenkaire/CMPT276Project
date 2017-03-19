@@ -41,6 +41,8 @@ public class XMLReader
             {
                 String questionTitle = xml.getAttributeValue(null, "title");
                 String hintText = xml.getAttributeValue(null, "hintText");
+                String language = xml.getAttributeValue(null, "language");
+                String difficulty = xml.getAttributeValue(null, "difficulty");
                 ArrayList<Answer> codeAnswers = new ArrayList<>();
                 ArrayList<LinearLayout> codeRows = new ArrayList<>();
                 ArrayList<String> codeOutputs = new ArrayList<>();
@@ -139,7 +141,7 @@ public class XMLReader
                 }
 
                 xml.close();
-                return new Question(questionKey, questionTitle, hintText, codeAnswers, codeRows, codeOutputs);
+                return new Question(questionKey, questionTitle, hintText, language, difficulty, codeAnswers, codeRows, codeOutputs);
             }
             eventType = xml.next();
         }
