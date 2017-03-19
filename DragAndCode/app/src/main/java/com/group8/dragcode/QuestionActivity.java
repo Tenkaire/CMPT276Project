@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
 
-import com.group8.dragcode.qclasses.CodeBox;
-import com.group8.dragcode.qclasses.Module;
+import com.group8.dragcode.qclasses.Answer;
 import com.group8.dragcode.qclasses.Question;
 import com.group8.dragcode.qclasses.XMLReader;
 
@@ -39,15 +38,16 @@ public class QuestionActivity extends AppCompatActivity
             Log.e("QuestionActivity", "Failed to get question " + qKey + ". Error: " + e.getMessage());
         }
 
-        LinearLayout ll_modules = (LinearLayout) findViewById(R.id.ll_modules);
-
-        for (Module m : question.getCodeModules())
+        LinearLayout tl_code = (LinearLayout) findViewById(R.id.ll_code);
+        for (LinearLayout codeRow : question.getCodeRows())
         {
-            ll_modules.addView(m);
+            tl_code.addView(codeRow);
         }
 
-        CodeBox codeBox = (CodeBox) findViewById(R.id.et_codeBox);
-        codeBox.setCurrentQuestion(question);
-
+        LinearLayout ll_answers = (LinearLayout) findViewById(R.id.ll_answers);
+        for (Answer answer : question.getCodeAnswers())
+        {
+            ll_answers.addView(answer);
+        }
     }
 }

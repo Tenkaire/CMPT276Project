@@ -2,6 +2,8 @@ package com.group8.dragcode.qclasses;
 
 import android.os.Parcelable;
 import android.os.Parcel;
+import android.widget.LinearLayout;
+import android.widget.TableRow;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,60 +16,43 @@ public class Question
 {
     private String questionKey;
     private String questionTitle;
-    private String questionText;
-    private String skeletonCode;
     private String hintText;
-    private ArrayList<Module> codeModules;
-
-    private ArrayList<String> allowedVarTypes;
-    private ArrayList<Variable> pdVars;
-    //private ArrayList<Comparison> pdComps;
+    private ArrayList<Answer> codeAnswers;
+    private ArrayList<LinearLayout> codeRows;
+    private ArrayList<String> codeOutputs;
 
     public Question()
     {
         this.questionKey = "DEF";
         this.questionTitle = "Default Question Title";
-        this.questionText = "Default Question Text";
-        this.hintText = "Default Skeleton Code";
-        this.skeletonCode = "Default Hint Text";
-        this.codeModules = new ArrayList<>();
+        this.hintText = "Default Hint Text";
+        this.codeAnswers = new ArrayList<>();
+        this.codeRows = new ArrayList<>();
+        this.codeOutputs = new ArrayList<>();
     }
 
-    public Question(String questionKey, String questionTitle, String questionText, String skeletonCode, String hintText, ArrayList<Module> codeModules)
+    public Question(String questionKey, String questionTitle, String hintText, ArrayList<Answer> codeAnswers, ArrayList<LinearLayout> codeRows, ArrayList<String> codeOutputs)
     {
         this.questionKey = questionKey;
         this.questionTitle = questionTitle;
-        this.questionText = questionText;
         this.hintText = hintText;
-        this.skeletonCode = skeletonCode;
-        this.codeModules = codeModules;
+        this.codeAnswers = codeAnswers;
+        this.codeRows = codeRows;
+        this.codeOutputs = codeOutputs;
     }
 
-    public String getQuestionKey() { return questionKey; }
-
-    public String getQuestionTitle()
+    public ArrayList<Answer> getCodeAnswers()
     {
-        return questionTitle;
+        return codeAnswers;
     }
 
-    public String getQuestionText()
+    public ArrayList<LinearLayout> getCodeRows()
     {
-        return questionText;
+        return codeRows;
     }
 
-    public String getSkeletonCode()
+    public ArrayList<String> getCodeOutputs()
     {
-        return skeletonCode;
+        return codeOutputs;
     }
-
-    public String getHintText()
-    {
-        return hintText;
-    }
-
-    public ArrayList<Module> getCodeModules()
-    {
-        return codeModules;
-    }
-
 }

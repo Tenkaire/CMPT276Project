@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.group8.dragcode.qclasses.Module;
 import com.group8.dragcode.qclasses.Question;
 
 public class MainActivity extends AppCompatActivity
