@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Drag &amp; Code</string>
+<<<<<<< HEAD:DragAndCode/app/src/main/res/values/strings.xml
+    <string name="returnToMainMenu">Return To Main Menu</string>
+=======
+    <string name="button_menu">Menu</string>
+    <string name="button_help">Help</string>
+>>>>>>> QClasses:Drag&Code/app/src/main/res/values/strings.xml
+</resources>
