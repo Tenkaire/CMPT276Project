@@ -4,18 +4,31 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_java"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Java" />
+            android:icon="@drawable/ic_java"
+            android:title="@string/toobar_java" />
         <item
             android:id="@+id/nav_c"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="C" />
+            android:icon="@drawable/ic_cpp"
+            android:title="@string/toolbar_cpp" />
         <item
             android:id="@+id/nav_python"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Python" />
+            android:icon="@drawable/ic_python"
+            android:title="@string/toolbar_python" />
 
     </group>
+
+    <item android:title="@string/toolbar_tool">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon = "@drawable/ic_help"
+                android:title="@string/toolbar_help" />
+            <item
+                android:id="@+id/nav_back"
+                android:icon = "@drawable/ic_back"
+                android:title="@string/toolbar_back"/>
+        </menu>
+    </item>
 
 
 </menu>

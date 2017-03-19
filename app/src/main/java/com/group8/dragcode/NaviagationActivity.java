@@ -1,5 +1,6 @@
 package com.group8.dragcode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -73,28 +74,30 @@ public class NaviagationActivity extends AppCompatActivity
     }
 
     private void ShowInfoScreen(int id){
-        boolean ifFragment = false;
 
 
         if(id == R.id.nav_java){
-            ifFragment = true;
             Fragment fragment = new Java();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.deflaut_cover, fragment);
             ft.commit();
         } else if(id==R.id.nav_c) {
-            ifFragment = true;
             Fragment fragment = new C();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.deflaut_cover, fragment);
             ft.commit();
         } else if(id == R.id.nav_python){
-            ifFragment = true;
             Fragment fragment = new Python();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.deflaut_cover, fragment);
             ft.commit();
-        } else{}
+        } else if(id == R.id.nav_help){
+            Intent intent = new Intent(NaviagationActivity.this,HelpActivity.class);
+            startActivity(intent);
+        } else if(id == R.id.nav_back){
+            Intent intent = new Intent(NaviagationActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -106,7 +109,6 @@ public class NaviagationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         ShowInfoScreen(id);
-
         return true;
     }
 }

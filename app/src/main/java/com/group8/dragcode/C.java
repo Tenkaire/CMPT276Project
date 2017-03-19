@@ -13,13 +13,20 @@ import android.support.v4.app.Fragment;
  */
 
 public class C extends Fragment {
-    private int score = 9;
+    private int NumCompleted = 0;
+
+    // DatabaseHelper myDB;
+    // myDB = new DatabaseHelper(this);
+    // StatsModel mySM;
+    // mySM = new StatsModel(this);
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        if(score>= 0 && score <4){
+
+        // countCompleted ();
+        if(NumCompleted>= 0 && NumCompleted <4){
             return inflater.inflate(R.layout.c, container,false);
-        }else if(score >=4 && score < 8){
+        }else if(NumCompleted >=4 && NumCompleted < 8){
             return inflater.inflate(R.layout.c_2, container,false);
         }else{
             return inflater.inflate(R.layout.c_3, container,false);
@@ -31,5 +38,12 @@ public class C extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getActivity().setTitle("C Part");
+    }
+
+    private int countCompleted (){
+
+        //To count how many questions are completed and are C++
+
+        return NumCompleted;
     }
 }

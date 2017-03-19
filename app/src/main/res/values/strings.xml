@@ -10,4 +10,22 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stage1">You are in stage 1.</string>
+    <string name="stage2">You are in stge 2.</string>
+    <string name="c_warrior">C++ Warrior</string>
+    <string name="c_beginner">C++ Beginner</string>
+    <string name="stage3">You are in stage 3.</string>
+    <string name="c_king">C++ King</string>
+    <string name="java_beginner">Java Beginner</string>
+    <string name="java_warrior">Java Warrior</string>
+    <string name="java_king">Java King</string>
+    <string name="python_beginner">Python Beginner</string>
+    <string name="python_warrior">Python Warrior</string>
+    <string name="python_king">Python King</string>
+    <string name="toobar_java">Java</string>
+    <string name="toolbar_cpp">C++</string>
+    <string name="toolbar_python">Python</string>
+    <string name="toolbar_tool">Tool</string>
+    <string name="toolbar_help">Help</string>
+    <string name="toolbar_back">Back</string>
 </resources>
