@@ -108,6 +108,8 @@ public class StatsModel {
         ContentValues values = new ContentValues();
         values.put(StatsTable.COL_QUESTION_ID, question.getQuestionKey());
         values.put(StatsTable.COL_STARTED_AT, System.currentTimeMillis());
+        values.put(StatsTable.COL_DIFFICULTY, question.getDifficulty());
+        values.put(StatsTable.COL_LANGUAGE, question.getLanguage());
 
         return database.insertWithOnConflict(StatsTable.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_IGNORE) != -1;
     }
