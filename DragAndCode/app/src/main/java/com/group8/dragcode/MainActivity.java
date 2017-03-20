@@ -15,5 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void questionSelection(View view) {
+        Intent intent = new Intent(this, QuestionSelectionActivity.class);
+        startActivity(intent);
     }
 }

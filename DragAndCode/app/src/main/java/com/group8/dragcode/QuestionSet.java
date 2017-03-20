@@ -10,11 +10,9 @@ package com.group8.dragcode;
 public class QuestionSet {
     private String[] questionKeys;
     private int currentIndex;
-    private XMLReader xmlReader;
 
-    private QuestionSet(String[] questionKeys, XMLReader xmlReader){
+    public QuestionSet(String[] questionKeys){
         this.questionKeys = questionKeys;
-        this.xmlReader = xmlReader;
         this.currentIndex = -1;
     }
 
@@ -22,28 +20,22 @@ public class QuestionSet {
         return questionKeys.length;
     }
 
-    public Question getCurrentQuestion(){
-        return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
+    public String getCurrentQuestionKey(){
+        return this.questionKeys[this.currentIndex];
     }
 
-    public Question getQuestionForIndex(int index){
+    public String getQuestionKeyForIndex(int index){
         this.currentIndex = index;
-        return this.xmlReader.getQuestion(questionKeys[index]);
+        return this.questionKeys[index];
     }
 
-    public Question getNextQuestion(){
-        if (this.currentIndex == questionKeys.length - 1){
-            throw new IndexOutOfBoundsException("Attempted To Access Question Out Of Set Range");
-        }
+    public String getNextQuestionKeys(){
         this.currentIndex += 1;
-        return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
+        return this.questionKeys[this.currentIndex];
     }
 
-    public  Question getPreviousQuestion(){
-        if (this.currentIndex == 0){
-            throw new IndexOutOfBoundsException("Attempted To Access Question Out Of Set Range");
-        }
+    public String getPreviousQuestionKeys(){
         this.currentIndex -= 1;
-        return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
+        return this.questionKeys[this.currentIndex];
     }
 }

@@ -1,6 +1,9 @@
 package com.group8.dragcode;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,7 +20,8 @@ import android.widget.LinearLayout;
 public class QuestionButtonAdapter extends BaseAdapter {
     QuestionSet questionSet;
     Context context;
-    private QuestionButtonAdapter(Context context, QuestionSet questionSet){
+
+    public QuestionButtonAdapter(Context context, QuestionSet questionSet){
         this.questionSet = questionSet;
         this.context = context;
     }
@@ -39,19 +43,23 @@ public class QuestionButtonAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Button button;
+        View grid;
         if (convertView == null){
-            button = new Button(this.context);
-            button.setPadding(5, 5, 5, 5);
-            LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            grid = new View(this.context);
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(this.context.LAYOUT_INFLATER_SERVICE);
+            grid = inflater.inflate(R.layout.question_selection_grid_layout, parent, false);
         } else {
-            button = (Button) convertView;
+            grid = (View) convertView;
         }
-        String number = String.valueOf(position + 1);
-        if (position < 9){
-            number = "0"+number;
+        Button button = (Button) grid.findViewById(R.id.questionButton);
+        String number;
+        if (position + 1 < 10){
+            number = "0" + String.valueOf(position + 1);
+        } else {
+            number = String.valueOf(position + 1);
         }
         button.setText(number);
-        return button;
+
+        return grid;
     }
 }

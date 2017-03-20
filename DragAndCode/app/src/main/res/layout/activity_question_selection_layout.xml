@@ -12,12 +12,17 @@
     android:gravity="center"
     tools:context="com.group8.dragcode.QuestionSelectionActivity">
     <GridView
+        android:id="@+id/questionSelection"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:numColumns="5"
+        android:gravity="top"
+        android:padding="5dp">
     </GridView>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/returnToMainMenu"
-        android:onClick="returnToMainMenu" />
+        android:onClick="returnToMainMenu"
+        android:gravity="bottom" />
 </LinearLayout>
