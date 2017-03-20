@@ -1,6 +1,7 @@
 package com.group8.dragcode;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -58,7 +59,9 @@ public class QuestionButtonAdapter extends BaseAdapter {
             number = String.valueOf(position + 1);
         }
         button.setText(number);
+        button.setOnClickListener(new QuestionButtonOnClickListener(this.questionSet.getQuestionKeyForIndex(position)));
 
         return grid;
     }
+
 }
