@@ -10,6 +10,8 @@
         android:dashGap="20px"
         />
 
+    <solid android:color="@android:color/transparent"/>
+
     <padding
         android:left="5dp"
         android:top="5dp"

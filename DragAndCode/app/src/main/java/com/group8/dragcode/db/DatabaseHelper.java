@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 StatsTable.COL_COMPLETED + " INTEGER DEFAULT 0," +
                 StatsTable.COL_STARTED_AT + " INTEGER," +
                 StatsTable.COL_COMPLETED_AT + " INTEGER DEFAULT 0," +
-                "PRIMARY KEY (" + StatsTable._ID + ", " + StatsTable.COL_QUESTION_ID + ")";
+                "PRIMARY KEY (" + StatsTable._ID + ", " + StatsTable.COL_QUESTION_ID + "))";
 
         public static final String SQL_DELETE = "DROP TABLE IF EXISTS " + StatsTable.TABLE_NAME;
 
