@@ -16,6 +16,7 @@ public class Question
 {
     private String questionKey;
     private String questionTitle;
+    private String questionDescription;
     private String hintText;
     private String language;
     private String difficulty;
@@ -27,6 +28,7 @@ public class Question
     {
         this.questionKey = "DEF";
         this.questionTitle = "Default Question Title";
+        this.questionDescription = "Default Question Description";
         this.hintText = "Default Hint Text";
         this.language = "Java";
         this.difficulty = "Easy";
@@ -35,10 +37,11 @@ public class Question
         this.codeOutputs = new ArrayList<>();
     }
 
-    public Question(String questionKey, String questionTitle, String hintText, String language, String difficulty, ArrayList<Answer> codeAnswers, ArrayList<LinearLayout> codeRows, ArrayList<String> codeOutputs)
+    public Question(String questionKey, String questionTitle, String questionDescription, String hintText, String language, String difficulty, ArrayList<Answer> codeAnswers, ArrayList<LinearLayout> codeRows, ArrayList<String> codeOutputs)
     {
         this.questionKey = questionKey;
         this.questionTitle = questionTitle;
+        this.questionDescription = questionDescription;
         this.hintText = hintText;
         this.language = language;
         this.difficulty = difficulty;
@@ -55,6 +58,11 @@ public class Question
     public String getQuestionTitle()
     {
         return questionTitle;
+    }
+
+    public String getQuestionDescription()
+    {
+        return questionDescription;
     }
 
     public String getHintText()

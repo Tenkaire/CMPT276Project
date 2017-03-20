@@ -18,14 +18,15 @@ public class StatsModel {
     // The difference is purely semantics.
     public static final String SQL_TABLE =
             "CREATE TABLE IF NOT EXISTS " + StatsTable.TABLE_NAME + " (" +
-                    StatsTable._ID + " INTEGER," +
-                    StatsTable.COL_QUESTION_ID + " TEXT," +
-                    StatsTable.COL_LANGUAGE + " TEXT," +
-                    StatsTable.COL_DIFFICULTY + " TEXT," +
-                    StatsTable.COL_COMPLETED + " INTEGER DEFAULT 0," +
-                    StatsTable.COL_STARTED_AT + " INTEGER," +
-                    StatsTable.COL_COMPLETED_AT + " INTEGER DEFAULT 0," +
-                    "PRIMARY KEY (" + StatsTable._ID + ", " + StatsTable.COL_QUESTION_ID + ")";
+            StatsTable._ID + " INTEGER," +
+            StatsTable.COL_QUESTION_ID + " TEXT," +
+            StatsTable.COL_LANGUAGE + " TEXT," +
+            StatsTable.COL_DIFFICULTY + " TEXT," +
+            StatsTable.COL_COMPLETED + " INTEGER DEFAULT 0," +
+            StatsTable.COL_STARTED_AT + " INTEGER," +
+            StatsTable.COL_COMPLETED_AT + " INTEGER DEFAULT 0," +
+            "PRIMARY KEY (" + StatsTable._ID + ", " + StatsTable.COL_QUESTION_ID + "))";
+
     public static final String SQL_DELETE = "DROP TABLE IF EXISTS " + StatsTable.TABLE_NAME;
     private SQLiteDatabase database;
     public StatsModel(SQLiteDatabase database) {

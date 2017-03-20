@@ -153,7 +153,7 @@ public class Blank extends AppCompatTextView
                     PopupMenu popupMenu = new PopupMenu(getContext(), blank);
 
                     SpannableString delString = new SpannableString(getResources().getString(R.string.code_clear));
-                    delString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getContext(), R.color.red)), 0, delString.length(), 0);
+                    delString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getContext(), R.color.holoRed)), 0, delString.length(), 0);
                     popupMenu.getMenu().add(delString);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
