@@ -29,6 +29,17 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void onPlayClick(View v) {
+        Intent intent = new Intent(this, LanguageSelectActivity.class);
+        this.startActivity(intent);
+    }
+
+    public void onStatsClick(View v) {
+        //TODO start stats activity
+        Intent intent = new Intent(this, StatsActivity.class);
+        this.startActivity(intent);
+    }
+
     public void onClickQuestion(View v)
     {
         // In reality, this will be the key to the question being clicked on

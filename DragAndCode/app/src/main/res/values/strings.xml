@@ -2,8 +2,36 @@
     <string name="app_name">Drag &amp; Code</string>
     <string name="questionSelection">Question Selection</string>
     <string name="returnToMainMenu">Return To Main Menu</string>
-    <string name="button_menu">Menu</string>
+    <string name="button_hint">Hint</string>
     <string name="button_help">Help</string>
+    <string name="button_check">Check Answer</string>
     <string name="code_clear">Clear</string>
     <string name="blank_hint">Drag code here</string>
+    <string name="diff_easy">Easy</string>
+    <string name="diff_medium">Medium</string>
+    <string name="diff_hard">Hard</string>
+    <string name="lang_java">Java</string>
+    <string name="lang_cpp">C++</string>
+    <string name="lang_python">Python</string>
+    <string name="button_play">Play!</string>
+    <string name="button_stats">Stats</string>
+    <string name="alert_incorrect">Incorrect</string>
+    <string name="alert_correct">Correct</string>
+    <string name="alert_incorrect_text">Oops! Your answer is incorrect.</string>
+    <string name="alert_correct_text">Congratulations! Your answer is correct!</string>
+    <string name="alert_next">Next Question</string>
+    <string name="alert_menu">Back to Menu</string>
+    <string name="alert_about">About This Question</string>
+    <string name="alert_output">Expected Output:</string>
+    <string name="alert_hint">Hint</string>
+    <string name="alert_hint_text">Here\'s your hint:</string>
+    
+    <string name="title_activity_stats">StatsActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_tool">Tool</string>
+    <string name="stage1">You are in stage 1!</string>
 </resources>

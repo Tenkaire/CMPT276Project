@@ -40,7 +40,10 @@ public class XMLReader
             if (eventType == XmlPullParser.START_TAG && xml.getName().equals("Question") && xml.getAttributeValue(null, "key").equals(questionKey))
             {
                 String questionTitle = xml.getAttributeValue(null, "title");
+                String questionDescription = xml.getAttributeValue(null, "description");
                 String hintText = xml.getAttributeValue(null, "hintText");
+                String language = xml.getAttributeValue(null, "language");
+                String difficulty = xml.getAttributeValue(null, "difficulty");
                 ArrayList<Answer> codeAnswers = new ArrayList<>();
                 ArrayList<LinearLayout> codeRows = new ArrayList<>();
                 ArrayList<String> codeOutputs = new ArrayList<>();
@@ -139,7 +142,7 @@ public class XMLReader
                 }
 
                 xml.close();
-                return new Question(questionKey, questionTitle, hintText, codeAnswers, codeRows, codeOutputs);
+                return new Question(questionKey, questionTitle, questionDescription, hintText, language, difficulty, codeAnswers, codeRows, codeOutputs);
             }
             eventType = xml.next();
         }

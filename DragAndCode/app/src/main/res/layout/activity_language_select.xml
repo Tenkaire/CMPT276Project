@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group8.dragcode.LanguageSelectActivity">
+
+    <Button
+        android:id="@+id/button_java"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onJavaClick"
+        android:text="@string/lang_java"
+        android:width="250dp"
+        android:height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_cpp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_cpp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onCppClick"
+        android:text="@string/lang_cpp"
+        android:width="250dp"
+        android:height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_python"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_java" />
+
+    <Button
+        android:id="@+id/button_python"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onPythonClick"
+        android:text="@string/lang_python"
+        android:width="250dp"
+        android:height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cpp" />
+    
+</android.support.constraint.ConstraintLayout>

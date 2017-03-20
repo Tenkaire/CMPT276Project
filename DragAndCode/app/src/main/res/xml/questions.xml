@@ -3,6 +3,7 @@
     <Question
         key="TEST"
         title="Test Question"
+        description="This is a test question! Your goal is to win!"
         hintText="Sample hint"
         language="Java"
         difficulty="Easy">
