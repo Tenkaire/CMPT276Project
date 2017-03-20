@@ -1,10 +1,17 @@
 package com.group8.dragcode;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -57,6 +64,73 @@ public class QuestionActivity extends AppCompatActivity
         this.setTitle(question.getQuestionTitle());
     }
 
+    public void onClickHelp(View view)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuestionActivity.this);
+
+        SpannableStringBuilder ssBuilder = new SpannableStringBuilder();
+
+        SpannableString title = new SpannableString(question.getQuestionTitle() + ":");
+        title.setSpan(new StyleSpan(Typeface.BOLD), 0, question.getQuestionTitle().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString expectedOutput = new SpannableString(getString(R.string.alert_output));
+        expectedOutput.setSpan(new StyleSpan(Typeface.BOLD), 0, expectedOutput.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ssBuilder.append(title);
+        ssBuilder.append("\n" + question.getQuestionDescription() + "\n\n");
+        ssBuilder.append(expectedOutput);
+        ssBuilder.append("\n");
+
+        for (String outputLine : question.getCodeOutputs())
+        {
+            SpannableString output = new SpannableString(outputLine);
+            output.setSpan(new TypefaceSpan("monospace"), 0, outputLine.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ssBuilder.append(output);
+            ssBuilder.append("\n");
+        }
+
+        builder.setTitle(getString(R.string.alert_about))
+                .setMessage(ssBuilder)
+                .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        dialog.dismiss();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public void onClickHint(View view)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuestionActivity.this);
+
+        SpannableStringBuilder ssBuilder = new SpannableStringBuilder();
+
+        SpannableString hintText = new SpannableString(question.getHintText());
+        hintText.setSpan(new StyleSpan(Typeface.ITALIC), 0, question.getHintText().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ssBuilder.append(getString(R.string.alert_hint_text) + "\n");
+        ssBuilder.append(hintText);
+
+        builder.setTitle(getString(R.string.alert_hint))
+                .setMessage(ssBuilder)
+                .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        dialog.dismiss();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     public void onClickCheckAnswer(View view)
     {
         boolean answersCorrect = true;
@@ -95,23 +169,40 @@ public class QuestionActivity extends AppCompatActivity
         {
             title = getResources().getString(R.string.alert_correct);
             text = getResources().getString(R.string.alert_correct_text);
-            builder.setTitle(title).setMessage(text).setNeutralButton(getResources().getString(android.R.string.ok), new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    dialog.dismiss();
-                    // Set the question as finished in the database here
-
-                    finish();
-                }
-            });
+            builder.setTitle(title)
+                    .setMessage(text)
+                    .setNegativeButton(getString(R.string.alert_menu), new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            dialog.dismiss();
+                            finish();
+                        }
+                    })
+                    .setPositiveButton(getString(R.string.alert_next), new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            dialog.dismiss();
+                            //Go to next question
+                        }
+                    })
+                    .setOnDismissListener(new DialogInterface.OnDismissListener()
+                    {
+                        @Override
+                        public void onDismiss(DialogInterface dialog)
+                        {
+                            // Save completed question to database
+                        }
+                    });
         }
         else
         {
             title = getResources().getString(R.string.alert_incorrect);
             text = getResources().getString(R.string.alert_incorrect_text);
-            builder.setTitle(title).setMessage(text).setNeutralButton(getResources().getString(android.R.string.ok), new DialogInterface.OnClickListener()
+            builder.setTitle(title).setMessage(text).setPositiveButton(getResources().getString(android.R.string.ok), new DialogInterface.OnClickListener()
             {
                 @Override
                 public void onClick(DialogInterface dialog, int which)
