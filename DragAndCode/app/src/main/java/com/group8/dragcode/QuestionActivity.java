@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.group8.dragcode.qclasses.Answer;
@@ -49,5 +50,10 @@ public class QuestionActivity extends AppCompatActivity
         {
             ll_answers.addView(answer);
         }
+    }
+
+    public void onMenuClick(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        this.startActivity(intent);
     }
 }
