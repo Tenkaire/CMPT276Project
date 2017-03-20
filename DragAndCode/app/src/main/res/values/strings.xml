@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Drag &amp; Code</string>
-    <string name="returnToMainMenu">Return To The Main Menu</string>
     <string name="questionSelection">Question Selection</string>
+    <string name="returnToMainMenu">Return To Main Menu</string>
+    <string name="button_menu">Menu</string>
+    <string name="button_help">Help</string>
+    <string name="code_clear">Clear</string>
+    <string name="blank_hint">Drag code here</string>
 </resources>
