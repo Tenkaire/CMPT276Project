@@ -3,6 +3,7 @@
     <string name="returnToMainMenu">Return To Main Menu</string>
     <string name="button_menu">Menu</string>
     <string name="button_help">Help</string>
+    <string name="button_check">Check Answer</string>
     <string name="code_clear">Clear</string>
     <string name="blank_hint">Drag code here</string>
     <string name="diff_easy">Easy</string>
@@ -13,4 +14,8 @@
     <string name="lang_python">Python</string>
     <string name="button_play">Play!</string>
     <string name="button_stats">Stats</string>
+    <string name="alert_incorrect">Incorrect</string>
+    <string name="alert_correct">Correct</string>
+    <string name="alert_incorrect_text">Oops! Your answer is incorrect.</string>
+    <string name="alert_correct_text">Congratulations! Your answer is correct!</string>
 </resources>
