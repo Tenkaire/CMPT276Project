@@ -20,7 +20,10 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_qstn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/greyborder">
 
         <LinearLayout
             android:id="@+id/ll_code"
@@ -49,11 +52,12 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_menu"
+        app:layout_constraintBottom_toTopOf="@+id/btn_help"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_code">
+        app:layout_constraintTop_toBottomOf="@+id/sv_code"
+        android:background="@drawable/greyborder">
 
         <LinearLayout
             android:id="@+id/ll_answers"
@@ -68,22 +72,34 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:text="@string/button_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/btn_help"
-        android:layout_marginStart="16dp"/>
+        app:layout_constraintHorizontal_chainStyle="spread"/>
 
     <Button
         android:id="@+id/btn_help"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
         android:text="@string/button_help"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_menu"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginEnd="16dp"/>
+        app:layout_constraintRight_toLeftOf="@+id/btn_check"/>
+
+    <Button
+        android:id="@+id/btn_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="onClickCheckAnswer"
+        android:text="@string/button_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_help"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
