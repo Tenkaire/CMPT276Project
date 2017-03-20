@@ -24,4 +24,13 @@
     <string name="alert_output">Expected Output:</string>
     <string name="alert_hint">Hint</string>
     <string name="alert_hint_text">Here\'s your hint:</string>
+    
+    <string name="title_activity_stats">StatsActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_tool">Tool</string>
+    <string name="stage1">You are in stage 1!</string>
 </resources>

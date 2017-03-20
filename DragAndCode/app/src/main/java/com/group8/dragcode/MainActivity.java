@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity
 
     public void onStatsClick(View v) {
         //TODO start stats activity
+        Intent intent = new Intent(this, StatsActivity.class);
+        this.startActivity(intent);
     }
 
     public void onClickQuestion(View v)
