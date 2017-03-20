@@ -27,4 +27,74 @@
         </Answers>
     </Question>
 
+    <question
+        key="CPP_INCL_GUARDS"
+        title="Header files"
+        hintText="Your goal is to stop this header from being included twice"
+        language="C++"
+        difficulty="Easy">
+        <code>
+            <blank answerKey="ifndef"/>
+            <newline/>
+            <blank answerKey="define"/>
+            <newline/>
+            <text>class SimpleClass{};</text>
+            <newline/>
+            <blank answerKey="endif"/>
+        </code>
+        <answers>
+            <answer key="ifndef">#ifndef HEADER_H</answer>
+            <answer key="define">#define HEADER_H</answer>
+            <answer key="endif">#endif</answer>
+            <answer>if-not HEADER_H</answer>
+            <answer>#set HEADER_H</answer>
+            <answer>#end</answer>
+            <answer>end</answer>
+        </answers>
+    </question>
+
+    <question
+        key="CPP_H_TEMPL_1"
+        title="Testing templates"
+        hintText="A template is a class that takes a type as a parameter"
+        language="C++"
+        difficulty="Medium">
+        <code>
+            <blank answerKey="class"/> <text>DynamicArray</text><blank answerKey="templ_param_list"/>
+            <newline/>
+            <text>{</text>
+            <newline/>
+            <blank answerKey="public"/>
+            <newline/>
+                <text indentLevel="1">DynamicArray();</text>
+                <newline/>
+                <text indentLevel="1">void insert</text><blank answerKey="insert_list"/>
+                <newline/>
+                <text indentLevel="1"></text><blank answerKey="get_sig"/><text>(int index);</text>
+            <newline/>
+            <blank answerKey="private"/>
+            <newline/>
+                <text indentLevel="1"></text><blank answerKey="elements_ptr"/>
+                <newline/>
+                <text indentLevel="1">int length;</text>
+            <newline/>
+            <text>};</text>
+        </code>
+        <answers>
+            <answer key="class">class</answer>
+            <answer>template</answer>
+            <answer>template_class</answer>
+            <answer key="public">public:</answer>
+            <answer key="private">private:</answer>
+            <answer key="templ_param_list">&lt;T&gt;</answer>
+            <answer>(T)</answer>
+            <answer>{T}</answer>
+            <answer key="insert_list">(T element);</answer>
+            <answer key="get_sig">T get</answer>
+            <answer key="elements_ptr">T *elements;</answer>
+            <answer>Object *elements</answer>
+            <answer>int *elements</answer>
+        </answers>
+    </question>
+
 </Questions>
