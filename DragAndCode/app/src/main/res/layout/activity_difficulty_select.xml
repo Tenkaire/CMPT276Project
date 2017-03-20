@@ -12,10 +12,14 @@
         android:layout_height="wrap_content"
         android:onClick="onEasyClick"
         android:text="@string/diff_easy"
+        android:width="250dp"
+        android:height="100dp"
         app:layout_constraintBottom_toTopOf="@+id/button_medium"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/button_medium"
@@ -23,6 +27,8 @@
         android:layout_height="wrap_content"
         android:onClick="onMediumClick"
         android:text="@string/diff_medium"
+        android:width="250dp"
+        android:height="100dp"
         app:layout_constraintBottom_toTopOf="@+id/button_hard"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -34,6 +40,8 @@
         android:layout_height="wrap_content"
         android:onClick="onHardClick"
         android:text="@string/diff_hard"
+        android:width="250dp"
+        android:height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
