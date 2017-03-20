@@ -45,7 +45,6 @@ public class QuestionButtonAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View grid;
         if (convertView == null){
-            grid = new View(this.context);
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(this.context.LAYOUT_INFLATER_SERVICE);
             grid = inflater.inflate(R.layout.question_selection_grid_layout, parent, false);
         } else {

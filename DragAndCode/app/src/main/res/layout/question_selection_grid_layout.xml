@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:background="@color/red"
         android:textColor="@color/white"
-        android:padding="1dp"/>
+        android:padding="1dp"
+        android:onClick="goToQuestion"/>
 
 </LinearLayout>
