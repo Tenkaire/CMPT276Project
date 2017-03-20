@@ -3,6 +3,7 @@ package com.group8.dragcode;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.group8.dragcode.db.DatabaseHelper;
+import com.group8.dragcode.db.StatsModel;
 import com.group8.dragcode.qclasses.Answer;
 import com.group8.dragcode.qclasses.Blank;
 import com.group8.dragcode.qclasses.Question;
@@ -30,6 +33,9 @@ public class QuestionActivity extends AppCompatActivity
 
     private Question question;
     private String qKey;
+    private StatsModel statsModel;
+    private SQLiteDatabase db;
+    private DatabaseHelper dbH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -62,6 +68,20 @@ public class QuestionActivity extends AppCompatActivity
         }
 
         this.setTitle(question.getQuestionTitle());
+
+        dbH = new DatabaseHelper(this);
+        db = dbH.getWritableDatabase();
+        statsModel = new StatsModel(db);
+        statsModel.insertAttempt(question);
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        db.close();
+        dbH.close();
+
+        super.onDestroy();
     }
 
     public void onClickHelp(View view)
@@ -194,7 +214,7 @@ public class QuestionActivity extends AppCompatActivity
                         @Override
                         public void onDismiss(DialogInterface dialog)
                         {
-                            // Save completed question to database
+                            statsModel.markCompletion(question);
                         }
                     });
         }
