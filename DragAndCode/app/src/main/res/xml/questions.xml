@@ -97,4 +97,30 @@
         </answers>
     </question>
 
+    <question
+        key="CPP_CONST_1"
+        title="Const function"
+        hintText="Think about the pointer!"
+        language="C++"
+        difficulty="hard">
+        <code>
+            <blank answerKey="functionLine"/>
+            <newline/>
+            <text>{</text>
+            <newline/>
+            <text indentLevel="1">return </text><blank answerKey="return"/>
+            <newline/>
+            <text>}</text>
+        </code>
+        <answers>
+            <answer key="functionLine">int const *MyClass::ConstMethod() const</answer>
+            <answer>int *MyClass::ConstMethod() const</answer>
+            <answer>int const *MyClass::ConstMethod()</answer>
+            <answer>int *MyClass::ConstMethod()</answer>
+            <answer key="return">this-&gt;intArray;</answer>
+            <answer>this-&gt;intArray const;</answer>
+            <answer>const this-&gt;intArray;</answer>
+        </answers>
+    </question>
+
 </Questions>
