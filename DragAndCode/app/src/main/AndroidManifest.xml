@@ -17,7 +17,12 @@
         </activity>
         <activity android:name=".QuestionActivity" />
         <activity android:name=".LanguageSelectActivity" />
-        <activity android:name=".DifficultySelectActivity"></activity>
+        <activity android:name=".DifficultySelectActivity" />
+        <activity
+            android:name=".StatsActivity"
+            android:label="@string/title_activity_stats"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HelpActivity"></activity>
     </application>
 
 </manifest>
