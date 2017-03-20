@@ -5,4 +5,12 @@
     <string name="button_help">Help</string>
     <string name="code_clear">Clear</string>
     <string name="blank_hint">Drag code here</string>
+    <string name="diff_easy">Easy</string>
+    <string name="diff_medium">Medium</string>
+    <string name="diff_hard">Hard</string>
+    <string name="lang_java">Java</string>
+    <string name="lang_cpp">C++</string>
+    <string name="lang_python">Python</string>
+    <string name="button_play">Play!</string>
+    <string name="button_stats">Stats</string>
 </resources>
