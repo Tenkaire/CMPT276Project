@@ -124,9 +124,4 @@ public class QuestionActivity extends AppCompatActivity
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-    public void onMenuClick(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
-        this.startActivity(intent);
-    }
 }
