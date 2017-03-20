@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+    }
+
+    public void questionSelection(View view) {
+        Intent intent = new Intent(this, QuestionSelectionActivity.class);
+        startActivity(intent);
     }
 
     public void onPlayClick(View v) {

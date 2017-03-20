@@ -1,13 +1,7 @@
 package com.group8.dragcode;
 
-import android.util.Log;
-
-import com.group8.dragcode.qclasses.Question;
-import com.group8.dragcode.qclasses.XMLReader;
-
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by Tyler on 2017-03-18.
@@ -16,14 +10,12 @@ import java.io.IOException;
  * one set corresponding to one difficulty/language pair
  */
 
-public class QuestionSet {
+public class QuestionSet implements Parcelable {
     private String[] questionKeys;
     private int currentIndex;
-    private XMLReader xmlReader;
 
-    private QuestionSet(String[] questionKeys, XMLReader xmlReader){
+    public QuestionSet(String[] questionKeys){
         this.questionKeys = questionKeys;
-        this.xmlReader = xmlReader;
         this.currentIndex = -1;
     }
 
@@ -31,58 +23,50 @@ public class QuestionSet {
         return questionKeys.length;
     }
 
-    public Question getCurrentQuestion(){
-        try
-        {
-            return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
-        } catch (IOException | XmlPullParserException | IndexOutOfBoundsException e)
-        {
-            Log.e("QuestionSet", "Failed to getCurrentQuestion at currentIndex " + currentIndex + ". Error: " + e.getMessage());
-        }
-        return null;
+    public String getCurrentQuestionKey(){
+        return this.questionKeys[this.currentIndex];
     }
 
-    public Question getQuestionForIndex(int index){
+    public String getQuestionKeyForIndex(int index){
         this.currentIndex = index;
-        try
-        {
-            return this.xmlReader.getQuestion(questionKeys[index]);
-        } catch (IOException | XmlPullParserException | IndexOutOfBoundsException e)
-        {
-            Log.e("QuestionSet", "Failed to getQuestionForIndex at index " + index + ". Error: " + e.getMessage());
-        }
-        return null;
+        return this.questionKeys[index];
     }
 
-    public Question getNextQuestion(){
-        if (this.currentIndex == questionKeys.length - 1){
-            //throw new IndexOutOfBoundsException("Attempted To Access Question Out Of Set Range");
-            return null;
-        }
+    public String getNextQuestionKeys(){
         this.currentIndex += 1;
-        try
-        {
-            return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
-        } catch (IOException | XmlPullParserException | IndexOutOfBoundsException e)
-        {
-            Log.e("QuestionSet", "Failed to getNextQuestion at index " + currentIndex + ". Error: " + e.getMessage());
-        }
-        return null;
+        return this.questionKeys[this.currentIndex];
     }
 
-    public  Question getPreviousQuestion(){
-        if (this.currentIndex == 0){
-            //throw new IndexOutOfBoundsException("Attempted To Access Question Out Of Set Range");
-            return null;
-        }
+    public String getPreviousQuestionKeys(){
         this.currentIndex -= 1;
-        try
-        {
-            return this.xmlReader.getQuestion(questionKeys[this.currentIndex]);
-        } catch (IOException | XmlPullParserException | IndexOutOfBoundsException e)
-        {
-            Log.e("QuestionSet", "Failed to getNextQuestion at index " + currentIndex + ". Error: " + e.getMessage());
-        }
-        return null;
+        return this.questionKeys[this.currentIndex];
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringArray(this.questionKeys);
+        dest.writeInt(this.currentIndex);
+    }
+
+    protected QuestionSet(Parcel in) {
+        this.questionKeys = in.createStringArray();
+        this.currentIndex = in.readInt();
+    }
+
+    public static final Parcelable.Creator<QuestionSet> CREATOR = new Parcelable.Creator<QuestionSet>() {
+        @Override
+        public QuestionSet createFromParcel(Parcel source) {
+            return new QuestionSet(source);
+        }
+
+        @Override
+        public QuestionSet[] newArray(int size) {
+            return new QuestionSet[size];
+        }
+    };
 }
